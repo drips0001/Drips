@@ -8,3 +8,11 @@ RUN apt-get update && \
     ln -fs /usr/share/zoneinfo/Asia/Kathmandu /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
  
+# Copy the startup script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+ 
+EXPOSE 8080
+ 
+CMD ["/start.sh"]
+ 
